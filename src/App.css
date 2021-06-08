@@ -1,0 +1,14 @@
+body {
+  font: 18px 'Roboto', sans-serif;
+  background-color: #DBE2EF;
+}
+
+h1, h2, p {
+  margin: 0;
+}
+
+.ToDo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

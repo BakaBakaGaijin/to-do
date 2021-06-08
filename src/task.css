@@ -1,0 +1,33 @@
+.task {
+    box-sizing: border-box;
+    width: 1000px;
+    height: 80px;
+    border-bottom: 2px solid rgba(63, 114, 175, 1);
+    padding: 6px 20px 10px 16px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.task-header {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.task-header_link {
+    margin-left: 44px;
+    font-weight: 400;
+    text-decoration: none;
+    color: #3F72AF;
+}
+
+.description {
+    font-size: 18px;
+    line-height: 20px;
+    color: #808080;
+}
