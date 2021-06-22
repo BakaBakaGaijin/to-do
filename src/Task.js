@@ -17,8 +17,6 @@ export default function Task() {
                     <a href="#"
                        className="task-header_link"
                     >
-                        <img src={folderPng} alt="folder"/>
-
                         {categories}
                     </a>
                 </h2>

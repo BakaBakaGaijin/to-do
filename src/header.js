@@ -1,3 +1,5 @@
+import { useHistory } from "react-router-dom";
+
 import "./header.css";
 
 function addTask() {
@@ -5,21 +7,31 @@ function addTask() {
 }
 
 export default function Header() {
+    const history = useHistory();
+
     return (
         <header className="header">
             <div className="header-wrapper">
                 <h1 className="header-title">ToDo List</h1>
                 <div className="header-menu">
-                    <a href="#"
+                    <a href="/items"
+                       onClick={(e) => {
+                           e.preventDefault();
+                           history.push('/items');
+                       }}
                        className="header-menu_link
                         active
                         header-menu_tasks"
-                    >Задачи</a>
+                    ><p>Задачи</p></a>
                     <div className="stick"></div>
-                    <a href="#"
+                    <a href="/categories"
+                       onClick={(e) => {
+                           e.preventDefault();
+                           history.push('/categories');
+                       }}
                        className="header-menu_link
                        header-menu_categories"
-                    >Категории</a>
+                    ><p>Категории</p></a>
                 </div>
             </div>
             <button

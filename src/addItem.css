@@ -1,0 +1,131 @@
+.addItem {
+    /*background-color: rgba(219, 226, 239, 1);*/
+    background-color: #fff;
+    width: 800px;
+    height: 376px;
+    box-sizing: border-box;
+    display: flex;
+    padding: 24px;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.addItem-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.addItem-header h2 {
+    color: rgba(63, 114, 175, 1);
+    font-style: normal;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 56px;
+}
+
+.addItem-close_img {
+    position: relative;
+    padding: 0;
+    box-sizing: border-box;
+    width: 25px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.addItem-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    position: relative;
+}
+
+#name, #categoryId, #description {
+    border-radius: 4px;
+    background: #DBE2EF;
+    border: 2px solid #3F72AF;
+    box-sizing: border-box;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 46px;
+}
+
+#categoryId, #name {
+    width: 364px;
+    height: 46px;
+}
+
+#description {
+    resize: none;
+    width: 100%;
+    height: 72px;
+    margin-top: 34px;
+}
+
+#categoryId, .addItem-close_button, .addItem-create {
+    cursor: pointer;
+}
+
+label {
+    position: absolute;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 20px;
+    color: rgba(63, 114, 175, 1);
+    background: #DBE2EF;
+}
+
+[for=name], [for=categoryId] {
+    top: -7px;
+}
+
+[for=name] {
+    left: 12px;
+}
+
+[for=categoryId] {
+    left: 400px;
+}
+
+[for=description]{
+    top: 70px;
+    left: 12px;
+}
+
+.addItem-buttons {
+    margin-top: 24px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.addItem-create {
+    box-sizing: border-box;
+    width: 200px;
+    height: 46px;
+    background: rgba(63, 114, 175, 1);
+    border: none;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 46px;
+    color: #fff;
+    border-radius: 4px;
+    margin-right: 24px;
+}
+
+.addItem-close_button {
+    box-sizing: border-box;
+    width: 120px;
+    height: 46px;
+    color: #3F72AF;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    border: 2px solid #3F72AF;
+    border-radius: 4px;
+    background: #DBE2EF;
+}
