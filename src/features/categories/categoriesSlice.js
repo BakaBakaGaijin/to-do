@@ -21,7 +21,13 @@ const initialState = [
 const categoriesSlice = createSlice({
     name: "categories",
     initialState,
-    reducers: {},
+    reducers: {
+        categoryAdded(state, action) {
+            state.push(action.payload);
+        }
+    },
 });
+
+ export const { categoryAdded } = categoriesSlice.actions;
 
 export default categoriesSlice.reducer;

@@ -42,7 +42,7 @@
     position: relative;
 }
 
-#name, #categoryId, #description {
+#name, #category-name, #categoryId, #description {
     border-radius: 4px;
     background: #DBE2EF;
     border: 2px solid #3F72AF;
@@ -53,7 +53,7 @@
     line-height: 46px;
 }
 
-#categoryId, #name {
+#categoryId, #name, #category-name {
     width: 364px;
     height: 46px;
 }
@@ -128,4 +128,8 @@ label {
     border: 2px solid #3F72AF;
     border-radius: 4px;
     background: #DBE2EF;
+}
+
+#category-name {
+    width: 100%;
 }

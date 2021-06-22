@@ -6,6 +6,7 @@ import itemsReducer from "../features/items/itemsSlice";
 
 export default configureStore({
   reducer: {
+    /*isItems:*/
     items: itemsReducer,
     categories: categoriesReducer,
   },

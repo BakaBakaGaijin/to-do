@@ -7,6 +7,7 @@ function addTask() {
 }
 
 export default function Header() {
+    let isItems = true;
     const history = useHistory();
 
     return (
@@ -17,6 +18,7 @@ export default function Header() {
                     <a href="/items"
                        onClick={(e) => {
                            e.preventDefault();
+                           isItems = !isItems;
                            history.push('/items');
                        }}
                        className="header-menu_link
@@ -27,6 +29,7 @@ export default function Header() {
                     <a href="/categories"
                        onClick={(e) => {
                            e.preventDefault();
+                           isItems = !isItems;
                            history.push('/categories');
                        }}
                        className="header-menu_link
@@ -37,7 +40,7 @@ export default function Header() {
             <button
                 className="header-button"
                 onClick={addTask}
-            >Добавить задачу</button>
+            >Добавить {isItems ? "задачу" : "категорию"}</button>
         </header>
     );
 }

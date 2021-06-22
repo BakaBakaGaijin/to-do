@@ -4,72 +4,55 @@ import { useDispatch } from "react-redux";
 import { nanoid } from "@reduxjs/toolkit";
 
 import "../../addItem.css";
-import{ itemAdded } from "./itemsSlice";
+import{ categoryAdded } from "./categoriesSlice";
 import HeaderForm from "../HeaderForm";
 
-export const AddItemForm = () => {
-    const categories  = useSelector(state => state.categories);
+export const AddCategoryForm = () => {
+    //const categories  = useSelector(state => state.categories);
 
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
-    const [categoryId, setCategoryId] = useState('');
+    //const [categoryId, setCategoryId] = useState('');
 
     const dispatch = useDispatch();
 
     const onNameChanged = e => setName(e.target.value);
     const onDescriptionChanged = e => setDescription(e.target.value);
-    const onCategoryIdChanged = e => setCategoryId(e.target.value);
+    //const onCategoryIdChanged = e => setCategoryId(e.target.value);
 
-    const onSaveItemClicked = () => {
-        if (name && description && categoryId) {
-            console.log("click");
+    const onSaveCategoryClicked = () => {
+        if (name && description) {
             dispatch(
-                itemAdded({
+                categoryAdded({
                     id: nanoid(),
                     name,
                     description,
-                    categoryId
+                    //categoryId
                 })
             )
 
             setName("");
-            setCategoryId("");
+            //setCategoryId("");
             setDescription("");
         }
     }
 
     return (
         <div className="addItem">
-            <HeaderForm title="Создание задачи" />
+            <HeaderForm title="Создание категории" />
             <form className="addItem-form">
                     <label htmlFor="name">Имя</label>
                     <input
+                        className="category-name"
                         name="name"
-                        id="name"
+                        id="category-name"
                         value={name}
-                        placeholder="Введите имя задачи"
+                        placeholder="Введите имя категории"
                         onChange={onNameChanged}
                     />
-                    <label htmlFor="categoryId">Категория</label>
-                    <select
-                        name="categoryId"
-                        id="categoryId"
-                        defaultValue="Выберите категорию"
-                        onChange={onCategoryIdChanged}
-                    >
-                        <option disabled selected>Выберите категорию</option>
-                        {categories.map(category => (
-                            <option
-                                key={category.id}
-                                value={category.name}
-                            >
-                                {category.name}
-                            </option>
-                        ))}
-                    </select>
                     <label htmlFor="description">Описание</label>
                     <textarea
-                        placeholder="Введите описание задачи"
+                        placeholder="Введите описание категории"
                         name="description"
                         id="description"
                         value={description}
@@ -80,7 +63,7 @@ export const AddItemForm = () => {
             <div className="addItem-buttons">
                 <button
                     className="addItem-create"
-                    onClick={onSaveItemClicked}
+                    onClick={onSaveCategoryClicked}
                 >Создать</button>
                 <button className="addItem-close_button">Закрыть</button>
             </div>
