@@ -5,7 +5,7 @@ import { nanoid } from "@reduxjs/toolkit";
 
 import "../../addItem.css";
 import{ itemAdded } from "./itemsSlice";
-import HeaderForm from "../HeaderForm";
+import HeaderForm from "../modal/HeaderForm";
 
 export const AddItemForm = () => {
     const categories  = useSelector(state => state.categories);

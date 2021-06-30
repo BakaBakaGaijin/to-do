@@ -11,7 +11,11 @@
 .text {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
+}
+
+.task:hover, .category:hover {
+    background-color: rgba(37, 127, 234, 0.2);
 }
 
 .task-header, .category-header {
@@ -33,11 +37,29 @@
     content: url("img/folder.svg");
     position: absolute;
     left: -28px;
-
 }
 
 .description {
     font-size: 18px;
     line-height: 20px;
     color: #808080;
+}
+
+.edit {
+    background-image: url(img/edit.svg);
+    margin-right: 15px;
+}
+
+.edit, .delete {
+    cursor: pointer;
+}
+
+
+.tools {
+    display: flex;
+    align-items: flex-end;
+}
+
+.tools > img {
+    display: flex;
 }

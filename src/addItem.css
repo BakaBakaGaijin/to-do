@@ -1,5 +1,6 @@
+/*
 .addItem {
-    /*background-color: rgba(219, 226, 239, 1);*/
+    !*background-color: rgba(219, 226, 239, 1);*!
     background-color: #fff;
     width: 800px;
     height: 376px;
@@ -133,3 +134,4 @@ label {
 #category-name {
     width: 100%;
 }
+*/
