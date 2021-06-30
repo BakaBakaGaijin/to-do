@@ -18,25 +18,20 @@ export default function ItemsBtns(props) {
                     dispatch(
                         modalTypeChanged("editItem")
                     )
-                    console.log("click on edit");
-                    console.log("здесь id, ", id);
                     setCurrentId(id);
-                    modalHandler(true, id);
+                    modalHandler(true);
                 }}
-            >
-
-            </Edit>
+            />
             <Del
                 className="delete"
                 onClick={() => {
                     dispatch(
                         modalTypeChanged("deleteItem")
                     )
+                    setCurrentId(id);
                     modalHandler(true);
                 }}
-            >
-
-            </Del>
+            />
         </div>
     );
 }

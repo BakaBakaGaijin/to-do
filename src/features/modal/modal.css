@@ -54,7 +54,6 @@
 }
 
 
-
 .modal-btns {
     display: flex;
     justify-content: flex-end;
@@ -127,12 +126,8 @@ input::-webkit-input-placeholder {
     top: 100%;
     left: -2px;
     width: 364px;
-    /*height: 46px;*/
-    /*padding: 15px;*/
-    /*border: 2px solid #3F72AF;*/
     border-radius: 4px;
 }
-
 
 
 .triangle {
@@ -142,9 +137,11 @@ input::-webkit-input-placeholder {
     border-top: 8px solid #3F72AF;
     margin-top: 10px;
 }
+
 .dropdown-content {
     background: #DBE2EF;
 }
+
 .dropdown-item, .dropdown-content {
     z-index: 10;
     position: relative;
@@ -164,7 +161,7 @@ input::-webkit-input-placeholder {
     transition: all 0.2s;
 }
 
-.dropdown .dropdown-content .dropdown-item:hover{
+.dropdown .dropdown-content .dropdown-item:hover {
     background: rgba(37, 127, 234, 0.2);
 }
 
@@ -182,7 +179,7 @@ input::-webkit-input-placeholder {
     height: 72px;
 }
 
-.addItem-form{
+.addItem-form {
     box-sizing: border-box;
     display: flex;
     flex-wrap: wrap;
@@ -228,7 +225,6 @@ label {
 
 .addItem-form label :nth-child(3) {
     top: 60px;
-
 }
 
 .delete-form {

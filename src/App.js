@@ -16,7 +16,8 @@ import "./App.css";
 
 function App() {
     const [modalActive, setModalActive] = useState(false);
-    const [currentId, setCurrentId] = useState('');
+    const [currentId, setCurrentId] = useState("");
+    const [currentId2, setCurrentId2] = useState("")
 
     return (
         <div className="ToDo">
@@ -32,7 +33,7 @@ function App() {
                     <Route
                         path="/categories"
                         render={() => (
-                            <CategoriesList modalHandler={setModalActive} setCurrentId={setCurrentId}/>
+                            <CategoriesList modalHandler={setModalActive} setCurrentId2={setCurrentId2}/>
                         )}
                     />
                     <Redirect to="/items"/>

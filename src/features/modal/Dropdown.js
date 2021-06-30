@@ -3,7 +3,6 @@ import {useSelector} from "react-redux";
 
 export default function DropDown({selected, setSelected}) {
     const categories = useSelector(state => state.categories);
-    console.log(categories);
 
     const [isActive, setIsActive] = useState(false);
     return (
@@ -19,7 +18,7 @@ export default function DropDown({selected, setSelected}) {
             <div className={"dropdown-content"}>
                 {categories.map(category => (
                     <div
-                        onClick={ (e) => {
+                        onClick={(e) => {
                             setSelected(category.name)
                             setIsActive(false);
                         }

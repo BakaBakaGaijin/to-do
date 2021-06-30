@@ -1,22 +1,21 @@
-import { useHistory } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
+import {useHistory} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {useSelector} from "react-redux";
 
 import "./header.css";
 import HeaderMenu from "./HeaderMenu";
-import { modalTypeChanged } from "../modal/modalTypeSlice";
+import {modalTypeChanged} from "../modal/modalTypeSlice";
 
 export default function Header(props) {
     const dispatch = useDispatch();
     const modalHandler = props.modalHandler;
     const history = useHistory();
     const mode = useSelector(state => state.mode).mode;
-    console.log("mode is ", mode);
     return (
         <header className="header">
             <div className="header-wrapper">
                 <h1 className="header-title">ToDo List</h1>
-                <HeaderMenu />
+                <HeaderMenu/>
             </div>
             {
                 mode === "items" ?
@@ -44,7 +43,6 @@ export default function Header(props) {
                         Добавить категорию
                     </button>
             }
-
         </header>
     );
 }

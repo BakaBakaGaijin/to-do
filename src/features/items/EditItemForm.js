@@ -11,20 +11,8 @@ export default function EditItemForm({name, setName, description, setDescription
         state.items.find(item => item.id === id)
     );
 
-    /*if (!item) {
-        return (
-            <div>Такой задачи у нас нет</div>
-        );
-    }*/
-
     const onNameChanged = e => setName(e.target.value);
     const onDescriptionChanged = e => setDescription(e.target.value);
-
-    /*setName(item.name);
-    setDescription(item.description);
-    setSelected(item.categoryId);*/
-
-
 
     return (
         <form className="addItem-form">

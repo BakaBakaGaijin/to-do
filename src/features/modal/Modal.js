@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import React, {useState} from "react";
+import {useSelector} from "react-redux";
 
 import DeleteItemForm from "../items/DeleteItemForm";
+import DeleteCategoryForm from "../categories/DeleteCategoryForm";
+
 import EditItemForm from "../items/EditItemForm";
 import HeaderForm from "./HeaderForm";
 import CreateItemForm from "../CreateItemForm";
@@ -11,14 +13,14 @@ import Btns from "../header/Btns";
 
 function findItem(id, items) {
     let tmp = items.find(item => item.id == id);
-    if (tmp === undefined) tmp = { name: "", categoryId: "", description: ""};
+    if (tmp === undefined) tmp = {name: "", categoryId: "", description: ""};
     return tmp;
 }
 
 const Modal = ({active, setActive, id}) => {
-    let  existingItem, iName, iSelected, iDescription;
+    let existingItem, iName, iSelected, iDescription;
     let items = useSelector(state => state.items);
-
+    console.log("id in modal", id);
 
     existingItem = findItem(id, items);
     iName = existingItem.name;
@@ -34,7 +36,7 @@ const Modal = ({active, setActive, id}) => {
     const modalType = useSelector(state => state.modalType).modalType;
 
     const sizeOfModal = () => {
-        switch(modalType) {
+        switch (modalType) {
             case "deleteItem":
             case "deleteCategory":
                 return "modal__content";
@@ -43,7 +45,7 @@ const Modal = ({active, setActive, id}) => {
         }
     }
 
-        return (
+    return (
         <div className={active ? "modal active" : "modal"} onClick={() => setActive(false)}>
             <div className={sizeOfModal()} onClick={(e) => e.stopPropagation()}>
                 <HeaderForm setActive={setActive}/>
@@ -66,13 +68,13 @@ const Modal = ({active, setActive, id}) => {
                 />}
                 {/*удаление*/}
                 {modalType === "deleteItem" && <DeleteItemForm id={id}/>}
+                {modalType === "deleteCategory" && <DeleteCategoryForm id={id} />}
                 <Btns
                     setActive={setActive}
                     name={name} setName={setName}
                     description={description} setDescription={setDescription}
                     selected={selected} setSelected={setSelected}
                 />
-
             </div>
         </div>
     );

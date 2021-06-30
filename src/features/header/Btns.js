@@ -2,7 +2,7 @@ import {useSelector, useDispatch} from "react-redux";
 import {nanoid} from "@reduxjs/toolkit";
 
 
-import {itemAdded, itemUpdated} from "../items/itemsSlice";
+import {itemAdded} from "../items/itemsSlice";
 import {categoryAdded} from "../categories/categoriesSlice";
 
 export default function Btns({setActive, name, setName, description, setDescription, selected, setSelected}) {
@@ -30,7 +30,6 @@ export default function Btns({setActive, name, setName, description, setDescript
     }
 
     const typeOfAction = useSelector(store => store).modalType.modalType;
-    console.log(typeOfAction);
     const contentOfBtn1 = () => {
         switch (typeOfAction) {
             case "deleteItem":

@@ -1,9 +1,7 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { nanoid } from "@reduxjs/toolkit";
+import {useSelector} from "react-redux";
+import {nanoid} from "@reduxjs/toolkit";
 
-import edit from "../../img/edit.svg";
-import del from "../../img/delete.svg";
 import "../../task.css";
 import ItemsBtns from "./ItemsBtns";
 
@@ -30,7 +28,6 @@ export const ItemsList = (props) => {
                 setCurrentId={props.setCurrentId}
             />
         </div>)
-
     )
 
     return (renderedItems);

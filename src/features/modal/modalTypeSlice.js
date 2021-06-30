@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import {createSlice} from "@reduxjs/toolkit";
 
 const initialState = {
     modalType: "createItem"
@@ -14,6 +14,6 @@ const modalTypeSlice = createSlice({
     }
 });
 
-export const { modalTypeChanged } = modalTypeSlice.actions;
+export const {modalTypeChanged} = modalTypeSlice.actions;
 
 export default modalTypeSlice.reducer;

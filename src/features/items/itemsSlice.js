@@ -1,30 +1,30 @@
-import { createSlice } from "@reduxjs/toolkit";
+import {createSlice} from "@reduxjs/toolkit";
 
 const initialState = [
-            {
-                id: 1,
-                name: "Задача1",
-                description: "Описание1",
-                categoryId: "Категория1"
+    {
+        id: 1,
+        name: "Задача1",
+        description: "Описание1",
+        categoryId: "Категория1"
 
-            },
-            {
-                id: 2,
-                name: "Задача2",
-                description: "Описание2",
-                categoryId: "Категория2"
+    },
+    {
+        id: 2,
+        name: "Задача2",
+        description: "Описание2",
+        categoryId: "Категория2"
 
-            },
-            {
-                id: 3,
-                name: "Задача3",
-                description: "Описание3",
-                categoryId: "Категория3"
-            }
-        ];
+    },
+    {
+        id: 3,
+        name: "Задача3",
+        description: "Описание3",
+        categoryId: "Категория3"
+    }
+];
 
- const itemsSlice = createSlice({
-    name: 'items',
+const itemsSlice = createSlice({
+    name: "items",
     initialState,
     reducers: {
         itemAdded(state, action) {
@@ -43,7 +43,6 @@ const initialState = [
 });
 
 
-
- export const { itemAdded, itemUpdated } = itemsSlice.actions;
+export const {itemAdded, itemUpdated} = itemsSlice.actions;
 
 export default itemsSlice.reducer;

@@ -1,4 +1,4 @@
-import { useSelector, useDispatch} from "react-redux";
+import {useSelector} from "react-redux";
 
 import close from "../../img/close.svg"
 
@@ -6,7 +6,7 @@ export default function HeaderForm({setActive}) {
     let typeOfAction = useSelector(store => store).modalType.modalType;
 
     const title = () => {
-        switch(typeOfAction) {
+        switch (typeOfAction) {
             case "createItem" :
                 return "Создание задачи";
             case "createCategory" :
