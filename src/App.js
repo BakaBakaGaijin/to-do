@@ -21,7 +21,6 @@ function App() {
 
     return (
         <div className="ToDo">
-            <Router>
                 <Header modalHandler={setModalActive}/>
                 <Switch>
                     <Route
@@ -39,7 +38,6 @@ function App() {
                     <Redirect to="/items"/>
                 </Switch>
                 <Modal active={modalActive} setActive={setModalActive} id={currentId} />
-            </Router>
         </div>
     );
 }

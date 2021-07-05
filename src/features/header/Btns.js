@@ -17,6 +17,9 @@ export default function Btns({setActive, name, setName, description, setDescript
                 categoryId: selected
             })
         )
+        setName("");
+        setDescription("");
+        setSelected("");
     }
 
     const onSaveCategoryClicked = () => {
@@ -27,6 +30,15 @@ export default function Btns({setActive, name, setName, description, setDescript
                 description
             })
         )
+        setName("");
+        setDescription("");
+    }
+
+    const onEditItemClicked = () => {
+        console.log("onEditItemClicked");
+        setName("");
+        setDescription("");
+        setSelected("");
     }
 
     const typeOfAction = useSelector(store => store).modalType.modalType;
@@ -59,6 +71,10 @@ export default function Btns({setActive, name, setName, description, setDescript
                 }
                 if (typeOfAction === "createCategory" && name) {
                     onSaveCategoryClicked();
+                    setActive(false);
+                }
+                if (typeOfAction === "editItem" && name) {
+                    onEditItemClicked();
                     setActive(false);
                 }
 

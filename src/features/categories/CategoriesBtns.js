@@ -1,4 +1,5 @@
 import {useDispatch} from "react-redux";
+import {useHistory} from "react-router-dom";
 
 import {ReactComponent as Edit} from "../../img/edit.svg";
 import {ReactComponent as Del} from "../../img/delete.svg";
@@ -10,6 +11,8 @@ export default function CategoriesBtns(props) {
     const setCurrentId2 = props.setCurrentId2;
     const dispatch = useDispatch();
 
+    const history = useHistory();
+
     return (
         <div className="tools">
             <Edit
@@ -20,6 +23,7 @@ export default function CategoriesBtns(props) {
                     )
                     setCurrentId2(id);
                     modalHandler(true);
+                    history.push(`/categories/edit${id}`)
                 }}
             />
             <Del
@@ -30,6 +34,7 @@ export default function CategoriesBtns(props) {
                     )
                     setCurrentId2(id);
                     modalHandler(true);
+                    history.push(`/categories/delete${id}`)
                 }}
             />
         </div>

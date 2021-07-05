@@ -1,4 +1,5 @@
 import {useDispatch} from "react-redux";
+import {Link, useHistory} from "react-router-dom";
 
 import {ReactComponent as Edit} from "../../img/edit.svg";
 import {ReactComponent as Del} from "../../img/delete.svg";
@@ -9,6 +10,7 @@ export default function ItemsBtns(props) {
     const id = props.id;
     const setCurrentId = props.setCurrentId;
     const dispatch = useDispatch();
+    const history = useHistory();
 
     return (
         <div className="tools">
@@ -20,6 +22,7 @@ export default function ItemsBtns(props) {
                     )
                     setCurrentId(id);
                     modalHandler(true);
+                    history.push(`/items/edit${id}`)
                 }}
             />
             <Del
@@ -30,6 +33,7 @@ export default function ItemsBtns(props) {
                     )
                     setCurrentId(id);
                     modalHandler(true);
+                    history.push(`/items/delete${id}`)
                 }}
             />
         </div>

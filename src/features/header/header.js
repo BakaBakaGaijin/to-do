@@ -1,6 +1,6 @@
 import {useHistory} from "react-router-dom";
-import {useDispatch} from "react-redux";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {useEffect} from "react";
 
 import "./header.css";
 import HeaderMenu from "./HeaderMenu";
@@ -10,6 +10,17 @@ export default function Header(props) {
     const dispatch = useDispatch();
     const modalHandler = props.modalHandler;
     const history = useHistory();
+
+    console.log(
+        "history in header.location.pathname", history.location.pathname
+    )
+    let toggle;
+
+    useEffect(() => {
+        toggle = history.location.pathname;
+    })
+
+
     const mode = useSelector(state => state.mode).mode;
     return (
         <header className="header">

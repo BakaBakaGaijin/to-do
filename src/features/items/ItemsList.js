@@ -6,6 +6,8 @@ import "../../task.css";
 import ItemsBtns from "./ItemsBtns";
 
 export const ItemsList = (props) => {
+    /*const params = props.match.params;
+    console.log("params in ItemsList: ", params);*/
     const items = useSelector(state => state.items);
     const setCurrentId = props.setCurrentId;
     const renderedItems = items.map(item =>

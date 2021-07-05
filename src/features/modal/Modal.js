@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import {useSelector} from "react-redux";
+import {useHistory} from "react-router-dom";
 
 import DeleteItemForm from "../items/DeleteItemForm";
 import DeleteCategoryForm from "../categories/DeleteCategoryForm";
@@ -18,12 +19,44 @@ function findItem(id, items) {
 }
 
 const Modal = ({active, setActive, id}) => {
-    let existingItem, iName, iSelected, iDescription;
+    let iName, iSelected, iDescription;
     let items = useSelector(state => state.items);
     console.log("id in modal", id);
 
-    existingItem = findItem(id, items);
+    const history = useHistory();
+    const path = history.location.pathname;
+
+
+
+    const elem = path.includes("items") ? "items" : "categories";
+    const action = path.includes("edit") ? "edit" : "delete";
+    const idFromHistory = elem + action;
+
+    let currentId;
+    switch(idFromHistory) {
+        case "itemsedit" :
+            currentId = path.slice(11);
+            console.log("itemsedit", currentId);
+            break;
+        case "itemsdelete" :
+            currentId = path.slice(13);
+            console.log("itemsdelete", currentId);
+            break;
+        case "categoriesedit" :
+            currentId = path.slice(16);
+            console.log("categoriesedit", currentId);
+            break;
+        case "categoriesdelete" :
+            currentId = path.slice(18);
+            console.log("categoriesdelete", currentId);
+            break;
+    }
+
+    const existingItem = findItem(currentId, items);
+    console.log("existingItem", existingItem);
+
     iName = existingItem.name;
+    console.log("iName", iName);
     iSelected = existingItem.categoryId;
     iDescription = existingItem.description;
 
@@ -31,7 +64,6 @@ const Modal = ({active, setActive, id}) => {
     const [selected, setSelected] = useState(iSelected);
     const [name, setName] = useState(iName);
     const [description, setDescription] = useState(iDescription);
-
 
     const modalType = useSelector(state => state.modalType).modalType;
 
