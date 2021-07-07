@@ -11,9 +11,6 @@ export default function Header(props) {
     const modalHandler = props.modalHandler;
     const history = useHistory();
 
-    console.log(
-        "history in header.location.pathname", history.location.pathname
-    )
     let toggle;
 
     useEffect(() => {

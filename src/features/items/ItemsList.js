@@ -8,11 +8,12 @@ import ItemsBtns from "./ItemsBtns";
 export const ItemsList = (props) => {
     /*const params = props.match.params;
     console.log("params in ItemsList: ", params);*/
+
     const items = useSelector(state => state.items);
     const setCurrentId = props.setCurrentId;
-    const renderedItems = items.map(item =>
-
-        (<div className="task" key={nanoid()}>
+    const renderedItems = items.map(item => {
+        props.addTodo({id: item.id, name: item.name, description: item.description, categoryId: item.categoryId})
+        return (<div className="task" key={nanoid()}>
             <div className="text">
                 <h2 className="task-header">
                     {item.name}
@@ -30,6 +31,9 @@ export const ItemsList = (props) => {
                 setCurrentId={props.setCurrentId}
             />
         </div>)
+    }
+
+
     )
 
     return (renderedItems);

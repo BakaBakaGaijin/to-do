@@ -16,8 +16,14 @@ export const AddItemForm = () => {
 
     const dispatch = useDispatch();
 
-    const onNameChanged = e => setName(e.target.value);
-    const onDescriptionChanged = e => setDescription(e.target.value);
+    const onNameChanged = e => {
+        let value = e.target.value;
+        if (value.length >= 255) setName(value);
+    };
+    const onDescriptionChanged = e => {
+        const value = e.target.value;
+        if (value.length <= 512) setDescription(value);
+    };
     const onCategoryIdChanged = e => setCategoryId(e.target.value);
 
     const onSaveItemClicked = () => {

@@ -3,8 +3,14 @@ import React from "react";
 import {ReactComponent as Important} from "../../img/important.svg";
 
 export default function CreateCategoryForm({name, setName, description, setDescription}) {
-    const onNameChanged = e => setName(e.target.value);
-    const onDescriptionChanged = e => setDescription(e.target.value);
+    const onNameChanged = e => {
+        let value = e.target.value;
+        if (value.length <= 255) setName(value);
+    };
+    const onDescriptionChanged = e => {
+        const value = e.target.value;
+        if (value.length <= 512) setDescription(value);
+    };
 
     return (
         <form className="addItem-form">

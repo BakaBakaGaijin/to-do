@@ -7,8 +7,14 @@ import DropDown from "./modal/Dropdown";
 export default function CreateItemForm({name, setName, description, setDescription, selected, setSelected}) {
     const categories  = useSelector(state => state.categories);
 
-    const onNameChanged = e => setName(e.target.value);
-    const onDescriptionChanged = e => setDescription(e.target.value);
+    const onNameChanged = e => {
+        let value = e.target.value;
+        if (value.length <= 255) setName(value);
+    };
+    const onDescriptionChanged = e => {
+        const value = e.target.value;
+        if (value.length <= 1536) setDescription(value);
+    };
 
     return(
         <form className="addItem-form">

@@ -1,7 +1,7 @@
 .task, .category {
     box-sizing: border-box;
     width: 1000px;
-    height: 80px;
+    min-height: 80px;
     border-bottom: 2px solid rgba(63, 114, 175, 1);
     padding: 6px 20px 10px 16px;
     display: flex;

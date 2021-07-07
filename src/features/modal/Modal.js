@@ -37,19 +37,15 @@ const Modal = ({active, setActive, id}) => {
     switch(idFromHistory) {
         case "itemsedit" :
             currentId = path.slice(11);
-            console.log("itemsedit", currentId);
             break;
         case "itemsdelete" :
             currentId = path.slice(13);
-            console.log("itemsdelete", currentId);
             break;
         case "categoriesedit" :
             currentId = path.slice(16);
-            console.log("categoriesedit", currentId);
             break;
         case "categoriesdelete" :
             currentId = path.slice(18);
-            console.log("categoriesdelete", currentId);
             break;
     }
 
@@ -58,7 +54,6 @@ const Modal = ({active, setActive, id}) => {
     iName = existingItem.name;
     iSelected = existingItem.categoryId;
     iDescription = existingItem.description;
-
 
     const [selected, setSelected] = useState(iSelected);
     const [name, setName] = useState(iName);

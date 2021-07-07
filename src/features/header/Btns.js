@@ -45,10 +45,12 @@ export default function Btns({setActive, name, setName, description, setDescript
         setName("");
         setDescription("");
         setSelected("");
+        history.push("/items");
     }
 
     const onEditCategoryClicked = () => {
         dispatch(categoryUpdated({id, name, description}));
+        history.push("/categories");
     }
 
     /* Удаление */
@@ -59,7 +61,6 @@ export default function Btns({setActive, name, setName, description, setDescript
 
     const onDeleteCategoryClicked = () => {
         dispatch(categoryDeleted({id}));
-        //history.goBack();
         history.push("/categories");
     }
 
