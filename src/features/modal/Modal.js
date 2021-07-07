@@ -21,7 +21,6 @@ function findItem(id, items) {
 const Modal = ({active, setActive, id}) => {
     let iName, iSelected, iDescription;
     let items = useSelector(state => state.items);
-    console.log("id in modal", id);
 
     const history = useHistory();
     const path = history.location.pathname;
@@ -36,7 +35,6 @@ const Modal = ({active, setActive, id}) => {
     switch(idFromHistory) {
         case "itemsedit" :
             currentId = path.slice(11);
-            console.log("itemsedit", currentId);
             break;
         case "itemsdelete" :
             currentId = path.slice(13);
@@ -53,10 +51,8 @@ const Modal = ({active, setActive, id}) => {
     }
 
     const existingItem = findItem(currentId, items);
-    console.log("existingItem", existingItem);
 
     iName = existingItem.name;
-    console.log("iName", iName);
     iSelected = existingItem.categoryId;
     iDescription = existingItem.description;
 
@@ -83,20 +79,28 @@ const Modal = ({active, setActive, id}) => {
                 <HeaderForm setActive={setActive}/>
                 {/*Создание*/}
                 {modalType === "createItem" && <CreateItemForm
+                    iName={iName} iSelected={iSelected} iDescription={iDescription}
                     selected={selected} setSelected={setSelected}
                     name={name} setName={setName}
                     description={description} setDescription={setDescription}
+                    modalType={modalType}
                 />}
                 {modalType === "createCategory" && <CreateCategoryForm
                     name={name} setName={setName}
                     description={description} setDescription={setDescription}
                 />}
                 {/*Редактирование*/}
-                {modalType === "editItem" && <EditItemForm
+                {modalType === "editItem" && <CreateItemForm
+                    /*EditItemForm*/
+                    iName={iName} iSelected={iSelected} iDescription={iDescription}
                     selected={selected} setSelected={setSelected}
                     name={name} setName={setName}
                     description={description} setDescription={setDescription}
-                    id={id}
+                    /*iName={iName} iSelected={iSelected} iDescription={iDescription}
+                    selected={selected} setSelected={setSelected}
+                    name={name} setName={setName}
+                    description={description} setDescription={setDescription}
+                    id={id}*/
                 />}
                 {/*удаление*/}
                 {modalType === "deleteItem" && <DeleteItemForm id={id}/>}
@@ -106,6 +110,7 @@ const Modal = ({active, setActive, id}) => {
                     name={name} setName={setName}
                     description={description} setDescription={setDescription}
                     selected={selected} setSelected={setSelected}
+                    id={id}
                 />
             </div>
         </div>

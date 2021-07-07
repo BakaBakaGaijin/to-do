@@ -2,10 +2,11 @@ import {useSelector, useDispatch} from "react-redux";
 import {nanoid} from "@reduxjs/toolkit";
 
 
-import {itemAdded} from "../items/itemsSlice";
+import {itemAdded, itemUpdated} from "../items/itemsSlice";
 import {categoryAdded} from "../categories/categoriesSlice";
 
-export default function Btns({setActive, name, setName, description, setDescription, selected, setSelected}) {
+export default function Btns({setActive, name, setName, description, setDescription, selected, setSelected, id}) {
+
     const dispatch = useDispatch();
 
     const onSaveItemClicked = () => {
@@ -34,8 +35,11 @@ export default function Btns({setActive, name, setName, description, setDescript
         setDescription("");
     }
 
-    const onEditItemClicked = () => {
+    const onEditItemClicked = (id, description, selected, name) => {
+        console.log("description", description);
         console.log("onEditItemClicked");
+        console.log("id in edit", id);
+        dispatch(itemUpdated({id, description, name, categoryId: selected}))
         setName("");
         setDescription("");
         setSelected("");
@@ -74,7 +78,7 @@ export default function Btns({setActive, name, setName, description, setDescript
                     setActive(false);
                 }
                 if (typeOfAction === "editItem" && name) {
-                    onEditItemClicked();
+                    onEditItemClicked(id);
                     setActive(false);
                 }
 
