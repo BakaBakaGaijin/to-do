@@ -1,16 +1,12 @@
 import React from "react";
-import { useSelector } from "react-redux";
 
-import {ReactComponent as Important} from "../img/important.svg";
-import DropDown from "./modal/Dropdown";
+import {ReactComponent as Important} from "../../img/important.svg";
 
-export default function CreateItemForm({name, setName, description, setDescription, selected, setSelected}) {
-    const categories  = useSelector(state => state.categories);
-
+export default function EditCategoryForm({name, setName, description, setDescription, id})  {
     const onNameChanged = e => setName(e.target.value);
     const onDescriptionChanged = e => setDescription(e.target.value);
 
-    return(
+    return (
         <form className="addItem-form">
                     <label htmlFor="name">Имя <Important className={"important"}/></label>
                     <input
@@ -20,12 +16,6 @@ export default function CreateItemForm({name, setName, description, setDescripti
                         value={name}
                         placeholder="Введите имя задачи"
                         onChange={onNameChanged}
-                    />
-                    <label htmlFor="categoryId">Категория</label>
-                    <DropDown
-                        id={"categoryId"}
-                        selected={selected}
-                        setSelected={setSelected}
                     />
                     <label htmlFor="description">Описание</label>
                     <textarea
@@ -38,5 +28,5 @@ export default function CreateItemForm({name, setName, description, setDescripti
                         >
                     </textarea>
             </form>
-    );
+    )
 }

@@ -6,9 +6,13 @@ import DeleteItemForm from "../items/DeleteItemForm";
 import DeleteCategoryForm from "../categories/DeleteCategoryForm";
 
 import EditItemForm from "../items/EditItemForm";
+import EditCategoryForm from "../categories/EditCategoryForm";
+
 import HeaderForm from "./HeaderForm";
+
 import CreateItemForm from "../CreateItemForm";
 import CreateCategoryForm from "../categories/CreateCategoryForm";
+
 import "./modal.css";
 import Btns from "../header/Btns";
 
@@ -25,8 +29,6 @@ const Modal = ({active, setActive, id}) => {
     const history = useHistory();
     const path = history.location.pathname;
 
-
-
     const elem = path.includes("items") ? "items" : "categories";
     const action = path.includes("edit") ? "edit" : "delete";
     const idFromHistory = elem + action;
@@ -35,6 +37,7 @@ const Modal = ({active, setActive, id}) => {
     switch(idFromHistory) {
         case "itemsedit" :
             currentId = path.slice(11);
+            console.log("itemsedit", currentId);
             break;
         case "itemsdelete" :
             currentId = path.slice(13);
@@ -79,38 +82,35 @@ const Modal = ({active, setActive, id}) => {
                 <HeaderForm setActive={setActive}/>
                 {/*Создание*/}
                 {modalType === "createItem" && <CreateItemForm
-                    iName={iName} iSelected={iSelected} iDescription={iDescription}
                     selected={selected} setSelected={setSelected}
                     name={name} setName={setName}
                     description={description} setDescription={setDescription}
-                    modalType={modalType}
                 />}
                 {modalType === "createCategory" && <CreateCategoryForm
                     name={name} setName={setName}
                     description={description} setDescription={setDescription}
                 />}
                 {/*Редактирование*/}
-                {modalType === "editItem" && <CreateItemForm
-                    /*EditItemForm*/
-                    iName={iName} iSelected={iSelected} iDescription={iDescription}
+                {modalType === "editItem" && <EditItemForm
                     selected={selected} setSelected={setSelected}
                     name={name} setName={setName}
                     description={description} setDescription={setDescription}
-                    /*iName={iName} iSelected={iSelected} iDescription={iDescription}
-                    selected={selected} setSelected={setSelected}
+                    id={id}
+                />}
+                {modalType === "editCategory" && <CreateCategoryForm
                     name={name} setName={setName}
                     description={description} setDescription={setDescription}
-                    id={id}*/
+                    id={id}
                 />}
                 {/*удаление*/}
-                {modalType === "deleteItem" && <DeleteItemForm id={id}/>}
-                {modalType === "deleteCategory" && <DeleteCategoryForm id={id} />}
+                {modalType === "deleteItem" && <DeleteItemForm id={currentId}/>}
+                {modalType === "deleteCategory" && <DeleteCategoryForm id={currentId} />}
                 <Btns
                     setActive={setActive}
                     name={name} setName={setName}
                     description={description} setDescription={setDescription}
                     selected={selected} setSelected={setSelected}
-                    id={id}
+                    id={currentId}
                 />
             </div>
         </div>

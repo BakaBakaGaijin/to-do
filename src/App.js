@@ -6,6 +6,13 @@ import {
     Redirect
 } from "react-router-dom";
 
+//
+import { persistentReducer } from 'redux-pouchdb'
+import { createStore, compose } from 'redux'
+import PouchDB from 'pouchdb';
+import addItem from "../src/features/items/addItem";
+//
+
 import Header from "./features/header/header";
 import Modal from "./features/modal/Modal";
 
@@ -14,10 +21,17 @@ import {ItemsList} from "./features/items/ItemsList";
 
 import "./App.css";
 
+
+
 function App() {
     const [modalActive, setModalActive] = useState(false);
     const [currentId, setCurrentId] = useState("");
     const [currentId2, setCurrentId2] = useState("")
+
+    //
+    let db = new PouchDB("todos");
+    let remoteCouch = false;
+    //
 
     return (
         <div className="ToDo">

@@ -1,14 +1,17 @@
 import {useSelector, useDispatch} from "react-redux";
 import {nanoid} from "@reduxjs/toolkit";
+import {useHistory} from "react-router-dom";
 
 
-import {itemAdded, itemUpdated} from "../items/itemsSlice";
-import {categoryAdded} from "../categories/categoriesSlice";
+import {itemAdded, itemUpdated, itemDeleted} from "../items/itemsSlice";
+import {categoryAdded, categoryUpdated, categoryDeleted} from "../categories/categoriesSlice";
 
 export default function Btns({setActive, name, setName, description, setDescription, selected, setSelected, id}) {
-
     const dispatch = useDispatch();
 
+    const history = useHistory();
+
+    /* Создание */
     const onSaveItemClicked = () => {
         dispatch(
             itemAdded({
@@ -35,14 +38,29 @@ export default function Btns({setActive, name, setName, description, setDescript
         setDescription("");
     }
 
-    const onEditItemClicked = (id, description, selected, name) => {
-        console.log("description", description);
+    /* Редактирование */
+    const onEditItemClicked = () => {
         console.log("onEditItemClicked");
-        console.log("id in edit", id);
-        dispatch(itemUpdated({id, description, name, categoryId: selected}))
+        dispatch(itemUpdated({id, name, description, categoryId: selected}));
         setName("");
         setDescription("");
         setSelected("");
+    }
+
+    const onEditCategoryClicked = () => {
+        dispatch(categoryUpdated({id, name, description}));
+    }
+
+    /* Удаление */
+    const onDeleteItemClicked = () => {
+        dispatch(itemDeleted({id}));
+        history.push("/items");
+    }
+
+    const onDeleteCategoryClicked = () => {
+        dispatch(categoryDeleted({id}));
+        //history.goBack();
+        history.push("/categories");
     }
 
     const typeOfAction = useSelector(store => store).modalType.modalType;
@@ -78,7 +96,20 @@ export default function Btns({setActive, name, setName, description, setDescript
                     setActive(false);
                 }
                 if (typeOfAction === "editItem" && name) {
-                    onEditItemClicked(id);
+                    onEditItemClicked();
+                    setActive(false);
+                }
+                if (typeOfAction === "editCategory" && name) {
+                    onEditCategoryClicked();
+                    setActive(false);
+                }
+                if (typeOfAction === "deleteItem") {
+                    onDeleteItemClicked();
+                    setActive(false);
+                }
+                if (typeOfAction === "deleteCategory") {
+                    onDeleteCategoryClicked();
+
                     setActive(false);
                 }
 
