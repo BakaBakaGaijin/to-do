@@ -1,16 +1,10 @@
-import {configureStore} from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
+import tasksReducer from "../features/tasksSlice";
+import categoriesReducer from "../features/categoriesSlice";
 
-import categoriesReducer from "../features/categories/categoriesSlice";
-import itemsReducer from "../features/items/itemsSlice";
-import toggleModeReducer from "../features/toggleModeSlice";
-import modalTypeReducer from "../features/modal/modalTypeSlice";
-
-
-export default configureStore({
-    reducer: {
-        mode: toggleModeReducer,
-        modalType: modalTypeReducer,
-        items: itemsReducer,
-        categories: categoriesReducer,
-    },
-})
+export const store = configureStore({
+  reducer: {
+    tasks: tasksReducer,
+    categories: categoriesReducer,
+  },
+});
