@@ -1,64 +1,32 @@
-import React, {useState} from "react";
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Redirect
-} from "react-router-dom";
+/* VENDOR */
+import React from "react";
+import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
 
-//
-import {persistentReducer} from 'redux-pouchdb'
-import {createStore, compose} from 'redux'
-import PouchDB from 'pouchdb';
-import addItem from "../src/features/items/addItem";
-//
-
-import Header from "./features/header/header";
-import Modal from "./features/modal/Modal";
-
-import {CategoriesList} from "./features/categories/CategoriesList";
-import {ItemsList} from "./features/items/ItemsList";
-
+/* APPLICATION */
 import "./App.css";
-
-let db = new PouchDB("todos");
-let remoteCouch = false;
-
-function addTodo({id, name, description, categoryId}) {
-    let item = {id, name, description, categoryId};
-    db.put(item, function callback(err, result) {
-        if (!err) {
-            console.log("Successfully posted a todo!");
-        }
-    })
-}
+import { Header } from "./Header/Header";
+import { Tasks } from "./Lists/Tasks";
+import { Categories } from "./Lists/Categories";
+import { Modal } from "./Modal/Modal";
 
 function App() {
-    const [modalActive, setModalActive] = useState(false);
-    const [currentId, setCurrentId] = useState("");
-    const [currentId2, setCurrentId2] = useState("")
+  const [modalActive, setModalActive] = useState(false);
 
-    return (
-        <div className="ToDo">
-            <Header modalHandler={setModalActive}/>
-            <Switch>
-                <Route
-                    path="/items"
-                    render={() => (
-                        <ItemsList modalHandler={setModalActive} setCurrentId={setCurrentId} addTodo={addTodo}/>
-                    )}
-                />
-                <Route
-                    path="/categories"
-                    render={() => (
-                        <CategoriesList modalHandler={setModalActive} setCurrentId2={setCurrentId2}/>
-                    )}
-                />
-                <Redirect to="/items"/>
-            </Switch>
-            <Modal active={modalActive} setActive={setModalActive} id={currentId}/>
-        </div>
-    );
+  return (
+    <div className="App">
+      <Header setActive={setModalActive} />
+      <Routes>
+        <Route path="/tasks" element={<Tasks setActive={setModalActive} />} />
+        <Route
+          path="/categories"
+          element={<Categories setActive={setModalActive} />}
+        />
+        <Route index="/tasks" element={<Tasks setActive={setModalActive} />} />
+      </Routes>
+      <Modal active={modalActive} setActive={setModalActive} />
+    </div>
+  );
 }
 
 export default App;

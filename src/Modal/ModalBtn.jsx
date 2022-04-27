@@ -1,0 +1,15 @@
+import "./ModalBtn.css";
+
+export const ModalBtn = ({ type, children, size, onClick }) => {
+  const btnClass =
+    type === "primary"
+      ? size === "large"
+        ? "modalbtn primary large"
+        : "modalbtn primary"
+      : "modalbtn";
+  return (
+    <button className={btnClass} onClick={onClick}>
+      {children}
+    </button>
+  );
+};
