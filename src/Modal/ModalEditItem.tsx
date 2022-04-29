@@ -10,7 +10,7 @@ import { ModalRow } from "./ModalRow";
 import { ModalInput } from "./ModalInput";
 import { ModalTextarea } from "./ModalTextarea";
 import { ModalFooter } from "./ModalFooter";
-import { tasksUpdate } from "../features/tasksSlice";
+import { tasksUpdated } from "../features/tasksSlice";
 import { categoriesUpdated } from "../features/categoriesSlice";
 
 interface ModalEditItemProps {
@@ -66,7 +66,7 @@ export const ModalEditItem: React.FC<ModalEditItemProps> = ({
           dispatch(
             isCategories
               ? categoriesUpdated({ id: item.id, name, description })
-              : tasksUpdate({
+              : tasksUpdated({
                   id: item.id,
                   name,
                   description,
