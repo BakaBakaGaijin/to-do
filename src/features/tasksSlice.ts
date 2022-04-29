@@ -43,7 +43,7 @@ export const tasksSlice = createSlice({
         ...action.payload,
       });
     },
-    tasksUpdate: (state, action) => {
+    tasksUpdated: (state, action) => {
       const { id, name, description, category } = action.payload,
         existingTask = state.find((task) => task.id === id);
 
@@ -68,8 +68,12 @@ export const tasksSlice = createSlice({
   },
 });
 
-export const { tasksAdded, tasksUpdate, tasksRemoved, tasksClearedCategories } =
-  tasksSlice.actions;
+export const {
+  tasksAdded,
+  tasksUpdated,
+  tasksRemoved,
+  tasksClearedCategories,
+} = tasksSlice.actions;
 
 export const selectAllTasks = (state: RootState) => state.tasks;
 
