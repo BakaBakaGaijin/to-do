@@ -10,7 +10,22 @@ import { ModalFooter } from "./ModalFooter";
 import { tasksRemoved, tasksClearedCategories } from "../features/tasksSlice";
 import { categoriesRemoved } from "../features/categoriesSlice";
 
-export const ModalRemoveItem = ({ item, active, setActive }) => {
+interface ModalRemoveItemProps {
+  item: {
+    id: string;
+    name: string;
+    description: string;
+    category?: string;
+  };
+  active: boolean;
+  setActive: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export const ModalRemoveItem: React.FC<ModalRemoveItemProps> = ({
+  item,
+  active,
+  setActive,
+}) => {
   const dispatch = useDispatch(),
     { pathname } = useLocation(),
     isCategories = pathname.includes("categories"),

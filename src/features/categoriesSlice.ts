@@ -1,7 +1,17 @@
-import { createSlice } from "@reduxjs/toolkit";
+/* VENDOR */
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { v4 as uuidv4 } from "uuid";
 
-const initialState = [
+/* APPLICATION */
+import { RootState } from "../app/store";
+
+export interface CategoriesState {
+  id: string;
+  name: string;
+  description: string;
+}
+
+const initialState: CategoriesState[] = [
   {
     id: "d485a644-5a24-4f55-b3f7-a083338be879",
     name: "Категория",
@@ -38,8 +48,12 @@ export const categoriesSlice = createSlice({
         existingCategory.description = description;
       }
     },
-    categoriesRemoved: (state, action) => {
-      let rm = (el, i, arr) => el.id === action.payload,
+    categoriesRemoved: (
+      state: CategoriesState[],
+      action: PayloadAction<string>
+    ) => {
+      let rm = (el: CategoriesState, i: number, arr: CategoriesState[]) =>
+          el.id === action.payload,
         rmTaskIndex = state.findIndex(rm);
 
       state.splice(rmTaskIndex, 1);
@@ -50,6 +64,6 @@ export const categoriesSlice = createSlice({
 export const { categoriesAdded, categoriesUpdated, categoriesRemoved } =
   categoriesSlice.actions;
 
-export const selectAllCategories = (state) => state.categories;
+export const selectAllCategories = (state: RootState) => state.categories;
 
 export default categoriesSlice.reducer;

@@ -13,7 +13,15 @@ import { ModalFooter } from "./ModalFooter";
 import { tasksAdded } from "../features/tasksSlice";
 import { categoriesAdded } from "../features/categoriesSlice";
 
-export const ModalCreateItem = ({ active, setActive }) => {
+interface ModalCreateItemProps {
+  active: boolean;
+  setActive: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export const ModalCreateItem: React.FC<ModalCreateItemProps> = ({
+  active,
+  setActive,
+}) => {
   const dispatch = useDispatch(),
     { pathname } = useLocation(),
     isCategories = pathname.includes("categories"),
@@ -68,7 +76,7 @@ export const ModalCreateItem = ({ active, setActive }) => {
                 clearState();
                 setActive(false);
               }
-            : null
+            : () => {}
         }
       />
     </Modal>

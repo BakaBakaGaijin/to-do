@@ -1,6 +1,14 @@
 import { ModalBtn } from "./ModalBtn";
 
-export const ModalFooter = ({
+interface ModalFooterProps {
+  clearState?(): void;
+  setActive: React.Dispatch<React.SetStateAction<boolean>>;
+  submitBtnText: string;
+  size?: string;
+  onSubmit: () => void;
+}
+
+export const ModalFooter: React.FC<ModalFooterProps> = ({
   clearState,
   setActive,
   submitBtnText,
@@ -9,7 +17,7 @@ export const ModalFooter = ({
 }) => {
   return (
     <footer className="modal__content-footer">
-      <ModalBtn type="primary" size={size || null} onClick={onSubmit}>
+      <ModalBtn type="primary" size={size || ""} onClick={onSubmit}>
         {submitBtnText}
       </ModalBtn>
       <ModalBtn

@@ -1,17 +1,17 @@
 /* VENDOR */
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 /* APPLICATION */
 import { ListItem } from "./ListItem";
 import { selectAllTasks } from "../features/tasksSlice";
 
-export const Tasks = ({ setActive }) => {
+export const Tasks: React.FC = () => {
   const tasks = useSelector(selectAllTasks);
 
   return (
     <ul>
       {tasks.map((task) => (
-        <ListItem setActive={setActive} key={task.id} item={task} />
+        <ListItem key={task.id} item={task} />
       ))}
     </ul>
   );
