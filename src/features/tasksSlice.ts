@@ -1,7 +1,18 @@
-import { createSlice } from "@reduxjs/toolkit";
+/* VENDOR */
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { v4 as uuidv4 } from "uuid";
 
-const initialState = [
+/* APPLICATION */
+import { RootState } from "../app/store";
+
+export interface CategoriesState {
+  id: string;
+  name: string;
+  description: string;
+  category: string;
+}
+
+const initialState: CategoriesState[] = [
   {
     id: "dcf6c7ea-56fe-4e36-960b-686ebf86d651",
     name: "Задача",
@@ -18,7 +29,7 @@ const initialState = [
     id: "5a034ea1-6159-4805-a4be-e8c160d8ef10",
     name: "Задача3",
     description: "Описание может быть длинным",
-    category: null,
+    category: "",
   },
 ];
 
@@ -43,7 +54,8 @@ export const tasksSlice = createSlice({
       }
     },
     tasksRemoved: (state, action) => {
-      let rm = (el, i, arr) => el.id === action.payload,
+      let rm = (el: CategoriesState, i: number, arr: CategoriesState[]) =>
+          el.id === action.payload,
         rmTaskIndex = state.findIndex(rm);
 
       state.splice(rmTaskIndex, 1);
@@ -59,6 +71,6 @@ export const tasksSlice = createSlice({
 export const { tasksAdded, tasksUpdate, tasksRemoved, tasksClearedCategories } =
   tasksSlice.actions;
 
-export const selectAllTasks = (state) => state.tasks;
+export const selectAllTasks = (state: RootState) => state.tasks;
 
 export default tasksSlice.reducer;

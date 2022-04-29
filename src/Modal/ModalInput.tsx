@@ -1,6 +1,16 @@
 import important from "../icons/important.svg";
 
-export const ModalInput = ({ name, setName, size }) => {
+interface ModalInputProps {
+  name: string;
+  setName: React.Dispatch<React.SetStateAction<string>>;
+  size?: string;
+}
+
+export const ModalInput: React.FC<ModalInputProps> = ({
+  name,
+  setName,
+  size,
+}) => {
   return (
     <div
       className={

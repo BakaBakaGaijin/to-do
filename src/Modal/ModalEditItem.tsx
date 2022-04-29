@@ -13,12 +13,27 @@ import { ModalFooter } from "./ModalFooter";
 import { tasksUpdate } from "../features/tasksSlice";
 import { categoriesUpdated } from "../features/categoriesSlice";
 
-export const ModalEditItem = ({ item, active, setActive }) => {
+interface ModalEditItemProps {
+  item: {
+    id: string;
+    name: string;
+    description: string;
+    category?: string;
+  };
+  active: boolean;
+  setActive: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export const ModalEditItem: React.FC<ModalEditItemProps> = ({
+  item,
+  active,
+  setActive,
+}) => {
   const dispatch = useDispatch(),
     { pathname } = useLocation(),
     isCategories = pathname.includes("categories"),
     [name, setName] = useState(item.name),
-    [selected, setSelected] = useState(item.category),
+    [selected, setSelected] = useState(item.category || ""),
     [description, setDescription] = useState(item.description);
 
   return (
