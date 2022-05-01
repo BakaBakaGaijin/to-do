@@ -1,11 +1,5 @@
 import "./ModalBtn.css";
-
-interface ModalBtnProps {
-  type?: string;
-  children: React.ReactNode;
-  size?: string;
-  onClick: () => void;
-}
+import { ModalBtnProps } from "../types";
 
 export const ModalBtn: React.FC<ModalBtnProps> = ({
   type,

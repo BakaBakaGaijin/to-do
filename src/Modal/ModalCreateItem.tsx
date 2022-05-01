@@ -12,16 +12,9 @@ import { ModalTextarea } from "./ModalTextarea";
 import { ModalFooter } from "./ModalFooter";
 import { tasksAdded } from "../features/tasksSlice";
 import { categoriesAdded } from "../features/categoriesSlice";
+import { Active } from "../types";
 
-interface ModalCreateItemProps {
-  active: boolean;
-  setActive: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
-export const ModalCreateItem: React.FC<ModalCreateItemProps> = ({
-  active,
-  setActive,
-}) => {
+export const ModalCreateItem: React.FC<Active> = ({ active, setActive }) => {
   const dispatch = useDispatch(),
     { pathname } = useLocation(),
     isCategories = pathname.includes("categories"),

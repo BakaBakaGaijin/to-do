@@ -8,17 +8,9 @@ import remove from "../icons/remove.svg";
 import { selectAllCategories } from "../features/categoriesSlice";
 import { ModalEditItem } from "../Modal/ModalEditItem";
 import { ModalRemoveItem } from "../Modal/ModalRemoveItem";
+import { TaskObj } from "../types";
 
-interface ListItemProps {
-  item: {
-    id: string;
-    name: string;
-    description: string;
-    category?: string;
-  };
-}
-
-export const ListItem: React.FC<ListItemProps> = ({ item }) => {
+export const ListItem: React.FC<TaskObj> = ({ item }) => {
   const categories = useSelector(selectAllCategories),
     [editModalActive, setEditModalActive] = useState(false),
     [removeModalActive, setRemoveModalActive] = useState(false);
