@@ -1,10 +1,5 @@
 import close from "../icons/close.svg";
-
-interface ModalHeaderProps {
-  clearState?(): void;
-  setActive: React.Dispatch<React.SetStateAction<boolean>>;
-  title: string;
-}
+import { ModalHeaderProps } from "../types";
 
 export const ModalHeader: React.FC<ModalHeaderProps> = ({
   clearState,

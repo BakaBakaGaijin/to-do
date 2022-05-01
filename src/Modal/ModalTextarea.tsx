@@ -1,9 +1,6 @@
-interface ModalTextareaProps {
-  description: string;
-  setDescription: React.Dispatch<React.SetStateAction<string>>;
-}
+import { Description } from "../types";
 
-export const ModalTextarea: React.FC<ModalTextareaProps> = ({
+export const ModalTextarea: React.FC<Description> = ({
   description,
   setDescription,
 }) => {
