@@ -17,18 +17,23 @@ export interface TaskObj {
 
 export interface Description {
   // ModalTextarea.tsx
+  isCategories: boolean;
   description: string;
   setDescription: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export interface Active {
   // ModalCreateItem.tsx
+  isActive?: boolean;
+  setIsActive?: React.Dispatch<React.SetStateAction<boolean>>;
   active: boolean;
   setActive: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export interface Dropdown {
   // ModalDropdown.tsx
+  isActive: boolean;
+  setIsActive: React.Dispatch<React.SetStateAction<boolean>>;
   selected: string | undefined;
   setSelected: React.Dispatch<React.SetStateAction<string>>;
 }

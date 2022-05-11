@@ -10,7 +10,6 @@ html {
   display: flex;
   justify-content: space-between;
   width: 1000px;
-  height: 80px;
   border-bottom: 2px solid #3f72af;
 }
 
@@ -27,6 +26,7 @@ html {
 .list-item-col1-row1 {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .list-item-col1-row1__title {
@@ -35,12 +35,14 @@ html {
   line-height: 20px;
   color: #000000;
   margin-right: 16px;
+  margin-bottom: 10px;
 }
 
 .list-item-col1-row1__category {
   font-weight: 400;
   font-size: 18px;
   color: #3f72af;
+  margin-bottom: 10px;
 }
 
 .list-item-col1-row1__category::before {
@@ -55,6 +57,11 @@ html {
   font-weight: 400;
   font-size: 18px;
   line-height: 20px;
+}
+
+.list-item-col2 {
+  box-sizing: border-box;
+  min-width: 65px;
 }
 
 .list-item-col2__btn {

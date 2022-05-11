@@ -25,6 +25,7 @@ export const Header = () => {
           >
             <Link to="tasks">Задачи</Link>
           </li>
+          <li className="stick"></li>
           <li
             className={
               isCategories

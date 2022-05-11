@@ -20,7 +20,8 @@ export const ModalCreateItem: React.FC<Active> = ({ active, setActive }) => {
     isCategories = pathname.includes("categories"),
     [name, setName] = useState(""),
     [selected, setSelected] = useState(""),
-    [description, setDescription] = useState("");
+    [description, setDescription] = useState(""),
+    [isActive, setIsActive] = useState(false);
 
   function clearState() {
     setName("");
@@ -29,7 +30,13 @@ export const ModalCreateItem: React.FC<Active> = ({ active, setActive }) => {
   }
 
   return (
-    <Modal active={active} setActive={setActive} clearState={clearState}>
+    <Modal
+      isActive={isActive}
+      setIsActive={setIsActive}
+      active={active}
+      setActive={setActive}
+      clearState={clearState}
+    >
       <ModalHeader
         clearState={clearState}
         setActive={setActive}
@@ -43,10 +50,13 @@ export const ModalCreateItem: React.FC<Active> = ({ active, setActive }) => {
           setName={setName}
           selected={selected}
           setSelected={setSelected}
+          isActive={isActive}
+          setIsActive={setIsActive}
         />
       )}
       <ModalTextarea
         description={description}
+        isCategories={isCategories}
         setDescription={setDescription}
       />
       <ModalFooter

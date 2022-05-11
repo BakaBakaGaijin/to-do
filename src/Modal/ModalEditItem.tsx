@@ -24,7 +24,8 @@ export const ModalEditItem: React.FC<EditItem> = ({
     isCategories = pathname.includes("categories"),
     [name, setName] = useState(item.name),
     [selected, setSelected] = useState(item.category || ""),
-    [description, setDescription] = useState(item.description);
+    [description, setDescription] = useState(item.description),
+    [isActive, setIsActive] = useState(false);
 
   return (
     <Modal item={item} active={active} setActive={setActive}>
@@ -38,6 +39,8 @@ export const ModalEditItem: React.FC<EditItem> = ({
         <ModalInput name={name} setName={setName} size="large" />
       ) : (
         <ModalRow
+          isActive={isActive}
+          setIsActive={setIsActive}
           name={name}
           setName={setName}
           selected={selected}
@@ -47,24 +50,29 @@ export const ModalEditItem: React.FC<EditItem> = ({
       <ModalTextarea
         description={description}
         setDescription={setDescription}
+        isCategories={isCategories}
       />
       <ModalFooter
         setActive={setActive}
         submitBtnText="Сохранить"
         size="large"
-        onSubmit={() => {
-          dispatch(
-            isCategories
-              ? categoriesUpdated({ id: item.id, name, description })
-              : tasksUpdated({
-                  id: item.id,
-                  name,
-                  description,
-                  category: selected,
-                })
-          );
-          setActive(false);
-        }}
+        onSubmit={
+          name
+            ? () => {
+                dispatch(
+                  isCategories
+                    ? categoriesUpdated({ id: item.id, name, description })
+                    : tasksUpdated({
+                        id: item.id,
+                        name,
+                        description,
+                        category: selected,
+                      })
+                );
+                setActive(false);
+              }
+            : () => {}
+        }
       />
     </Modal>
   );

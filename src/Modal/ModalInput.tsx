@@ -9,6 +9,8 @@ export const ModalInput: React.FC<Input> = ({ name, setName, size }) => {
       }
     >
       <input
+        required
+        maxLength={254}
         id="modalinput"
         className="modalinput"
         placeholder="Введите имя задачи/категории"

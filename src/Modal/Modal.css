@@ -113,7 +113,7 @@
   display: inline-block;
   background-color: #dbe2ef;
   font-weight: 400;
-  padding: 4px;
+  padding: 2px;
   font-size: 18px;
   line-height: 20px;
   color: #3f72af;
@@ -149,6 +149,18 @@
   padding: 8px;
 }
 
+.modaltextarea.h412 {
+  height: 156px;
+}
+
+.modaltextarea.h309 {
+  height: 128px;
+}
+
+.modaltextarea.h206 {
+  height: 100px;
+}
+
 .modaltextarea::placeholder {
   color: rgba(0, 0, 0, 0.5);
 }
@@ -168,18 +180,24 @@
 
 .dropdown .dropdown-btn {
   box-sizing: border-box;
-  padding: 8px;
   display: flex;
+  padding: 8px;
   align-items: center; /* для треугольника */
   justify-content: space-between;
   background: #dbe2ef;
   border: 2px solid #3f72af;
   border-radius: 4px;
+  height: 46px;
+}
+
+.dropdown .dropdown-btn .dropdown-btn__text {
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
-  height: 46px;
   color: #000;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .dropdown .dropdown-btn.placeholder {
@@ -189,11 +207,30 @@
 .dropdown .dropdown-content {
   box-sizing: border-box;
   position: absolute;
+  max-height: 200px;
   top: 45px;
   background: #dbe2ef;
   border: 2px solid #3f72af;
   border-radius: 4px;
   width: 364px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.dropdown .dropdown-content::-webkit-scrollbar,
+.modaltextarea::-webkit-scrollbar {
+  width: 20px;
+  background-color: rgba(63, 114, 175, 0.1);
+}
+
+.dropdown .dropdown-content::-webkit-scrollbar-thumb,
+.modaltextarea::-webkit-scrollbar-thumb {
+  background-color: rgba(63, 114, 175, 0.9);
+}
+
+.dropdown .dropdown-content::-webkit-scrollbar-track,
+.modaltextarea::-webkit-scrollbar-track {
+  -webkit-box-shadow: 5px 5px 5px -5px rgba(63, 114, 175, 0.2) inset;
 }
 
 .dropdown .dropdown-content .dropdown-item {
@@ -201,10 +238,15 @@
   left: -2px;
   box-sizing: border-box;
   padding: 10px;
-  width: 364px;
+  width: 100%;
   border: none;
   border-radius: 4px;
   color: #3f72af;
+}
+
+.dropdown .dropdown-content .dropdown-item.active {
+  color: #fff;
+  background-color: #3f72af;
 }
 
 .dropdown .dropdown-content .dropdown-item:hover {

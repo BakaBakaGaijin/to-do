@@ -25,6 +25,7 @@
 .header-list {
   display: flex;
   list-style-type: none;
+  position: relative;
 }
 
 .header-list-item {
@@ -46,19 +47,14 @@
   position: relative;
 }
 
-/* .header-list-item a:first-child {
-    border-right: 2px solid #dbe2ef;
-  } */
-
-[href="/tasks"]::after {
-  content: "";
+.stick {
+  position: absolute;
   box-sizing: border-box;
   width: 0;
   height: 28px;
   border-right: 2px solid #dbe2ef;
-  position: absolute;
-  top: 2px;
-  left: 90px;
+  left: 92px;
+  top: -4px;
 }
 
 .header-list-item-active a {

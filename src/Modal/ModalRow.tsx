@@ -7,11 +7,18 @@ export const ModalRow: React.FC<Row> = ({
   setName,
   selected,
   setSelected,
+  isActive,
+  setIsActive,
 }) => {
   return (
     <div className="modal__content_row">
       <ModalInput name={name} setName={setName} />
-      <ModalDropdown selected={selected} setSelected={setSelected} />
+      <ModalDropdown
+        isActive={isActive}
+        setIsActive={setIsActive}
+        selected={selected}
+        setSelected={setSelected}
+      />
     </div>
   );
 };
