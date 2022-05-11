@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from "uuid";
 import { RootState } from "../app/store";
 import { Item } from "../types";
 
-const initialState: Item[] = [
+/* const initialState: Item[] = [
   {
     id: "d485a644-5a24-4f55-b3f7-a083338be879",
     name: "Категория",
@@ -22,17 +22,19 @@ const initialState: Item[] = [
     name: "Категория3",
     description: "Описание может быть длинным",
   },
-];
+]; */
 
 export const categoriesSlice = createSlice({
   name: "categories",
-  initialState,
+  initialState: () =>
+    JSON.parse(localStorage.getItem("categories") || "[]") as Item[],
   reducers: {
     categoriesAdded: (state, action) => {
       state.push({
         id: uuidv4(),
         ...action.payload,
       });
+      localStorage.setItem("categories", JSON.stringify(state));
     },
     categoriesUpdated: (state, action) => {
       const { id, name, description } = action.payload,
@@ -42,12 +44,15 @@ export const categoriesSlice = createSlice({
         existingCategory.name = name;
         existingCategory.description = description;
       }
+
+      localStorage.setItem("categories", JSON.stringify(state));
     },
     categoriesRemoved: (state: Item[], action: PayloadAction<string>) => {
       let rm = (el: Item, i: number, arr: Item[]) => el.id === action.payload,
         rmTaskIndex = state.findIndex(rm);
 
       state.splice(rmTaskIndex, 1);
+      localStorage.setItem("categories", JSON.stringify(state));
     },
   },
 });

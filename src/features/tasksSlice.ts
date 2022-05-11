@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from "uuid";
 import { RootState } from "../app/store";
 import { Task } from "../types";
 
-const initialState: Task[] = [
+/* const initialState: Task[] = [
   {
     id: "dcf6c7ea-56fe-4e36-960b-686ebf86d651",
     name: "Задача",
@@ -25,17 +25,19 @@ const initialState: Task[] = [
     description: "Описание может быть длинным",
     category: "",
   },
-];
+]; */
 
 export const tasksSlice = createSlice({
   name: "tasks",
-  initialState,
+  initialState: () =>
+    JSON.parse(localStorage.getItem("tasks") || "[]") as Task[],
   reducers: {
     tasksAdded: (state, action) => {
       state.push({
         id: uuidv4(),
         ...action.payload,
       });
+      localStorage.setItem("tasks", JSON.stringify(state));
     },
     tasksUpdated: (state, action) => {
       const { id, name, description, category } = action.payload,
@@ -46,17 +48,20 @@ export const tasksSlice = createSlice({
         existingTask.description = description;
         existingTask.category = category;
       }
+      localStorage.setItem("tasks", JSON.stringify(state));
     },
     tasksRemoved: (state, action) => {
       let rm = (el: Task, i: number, arr: Task[]) => el.id === action.payload,
         rmTaskIndex = state.findIndex(rm);
 
       state.splice(rmTaskIndex, 1);
+      localStorage.setItem("tasks", JSON.stringify(state));
     },
     tasksClearedCategories: (state, action) => {
       state.map((task) => {
         if (task.category === action.payload) task.category = "";
       });
+      localStorage.setItem("tasks", JSON.stringify(state));
     },
   },
 });

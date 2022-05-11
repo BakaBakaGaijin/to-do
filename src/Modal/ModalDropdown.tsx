@@ -14,7 +14,7 @@ export const ModalDropdown: React.FC<Dropdown> = ({
   setIsActive,
 }) => {
   const options = useSelector(selectAllCategories);
-  console.log("selected: ", selected);
+
   return (
     <div className="dropdown" onClick={() => setIsActive(!isActive)}>
       <span className="dropdown-label">Категория</span>

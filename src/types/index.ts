@@ -1,3 +1,8 @@
+export interface Items {
+  categories: Item[];
+  tasks: Task[];
+}
+
 export interface Item {
   // categoriesSlice.ts
   id: string;
