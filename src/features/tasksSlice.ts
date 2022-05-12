@@ -1,5 +1,5 @@
 /* VENDOR */
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { v4 as uuidv4 } from "uuid";
 
 /* APPLICATION */
@@ -58,7 +58,7 @@ export const tasksSlice = createSlice({
       localStorage.setItem("tasks", JSON.stringify(state));
     },
     tasksClearedCategories: (state, action) => {
-      state.map((task) => {
+      state.forEach((task) => {
         if (task.category === action.payload) task.category = "";
       });
       localStorage.setItem("tasks", JSON.stringify(state));
