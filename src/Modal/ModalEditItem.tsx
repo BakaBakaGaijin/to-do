@@ -28,7 +28,13 @@ export const ModalEditItem: React.FC<EditItem> = ({
     [isActive, setIsActive] = useState(false);
 
   return (
-    <Modal item={item} active={active} setActive={setActive}>
+    <Modal
+      item={item}
+      active={active}
+      setActive={setActive}
+      isActive={isActive}
+      setIsActive={setIsActive}
+    >
       <ModalHeader
         setActive={setActive}
         title={

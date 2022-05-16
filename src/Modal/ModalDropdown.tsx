@@ -26,22 +26,26 @@ export const ModalDropdown: React.FC<Dropdown> = ({
       </div>
       {isActive && (
         <div className="dropdown-content">
-          {options.map((option) => (
-            <div
-              className={
-                selected && selected === option.id
-                  ? "dropdown-item active"
-                  : "dropdown-item"
-              }
-              onClick={() => {
-                setSelected(option.id);
-                setIsActive(false);
-              }}
-              key={option.id}
-            >
-              {option.name}
-            </div>
-          ))}
+          {!!options?.length ? (
+            options.map((option) => (
+              <div
+                className={
+                  selected && selected === option.id
+                    ? "dropdown-item active"
+                    : "dropdown-item"
+                }
+                onClick={() => {
+                  setSelected(option.id);
+                  setIsActive(false);
+                }}
+                key={option.id}
+              >
+                {option.name}
+              </div>
+            ))
+          ) : !options?.length ? (
+            <div className="dropdown-item">Список пуст</div>
+          ) : null}
         </div>
       )}
     </div>

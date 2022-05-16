@@ -27,7 +27,13 @@ export const Modal: React.FC<ModalProps> = ({
         setActive(false);
       }}
     >
-      <div className="modal__content" onClick={(e) => e.stopPropagation()}>
+      <div
+        className="modal__content"
+        onClick={(e) => {
+          e.stopPropagation();
+          dropdownHandler(e);
+        }}
+      >
         {children}
       </div>
     </div>

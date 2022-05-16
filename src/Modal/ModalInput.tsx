@@ -12,7 +12,7 @@ export const ModalInput: React.FC<Input> = ({ name, setName, size }) => {
         required
         maxLength={254}
         id="modalinput"
-        className="modalinput"
+        className="modalinput" // required
         placeholder="Введите имя задачи/категории"
         value={name}
         onChange={(e) => setName(e.target.value)}
