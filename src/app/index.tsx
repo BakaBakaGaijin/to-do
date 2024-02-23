@@ -1,29 +1,17 @@
-/* VENDOR */
-import { Provider } from "react-redux";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-
 /* APPLICATION */
-import { store } from "./store";
-import { Categories } from "../Lists/Categories";
 import { Header } from "../Header/Header";
-import { Tasks } from "../Lists/Tasks";
-import "../App.css";
+import { Routing } from "../pages";
+import { withProviders } from "./providers";
+import "./styles/vars.css";
+import "./styles/index.css";
 
 const App = () => {
   return (
     <div className="App">
-      <Provider store={store}>
-        <BrowserRouter>
-          <Header />
-          <Routes>
-            <Route path="/tasks" element={<Tasks />} />
-            <Route path="/categories" element={<Categories />} />
-            <Route index element={<Tasks />} />
-          </Routes>
-        </BrowserRouter>
-      </Provider>
+      <Header />
+      <Routing />
     </div>
   );
 };
 
-export default App;
+export default withProviders(App);

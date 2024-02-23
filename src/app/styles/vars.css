@@ -1,0 +1,15 @@
+:root {
+  --white: #fff;
+  --black: #000;
+  --transparent-black-40: rgba(0, 0, 0, 0.4);
+  --transparent-black-50: rgba(0, 0, 0, 0.5);
+  --blue: #8fb6ff;
+  --light-blue: #dbe2ef;
+  --dark-blue: #3f72af;
+  --deep-blue: #3f72ff;
+  --transparent-blue-20: rgba(37, 127, 234, 0.2);
+  --dark-blue-transparent-10: rgba(63, 114, 175, 0.1);
+  --dark-blue-transparent-20: rgba(63, 114, 175, 0.2);
+  --dark-blue-transparent-90: rgba(63, 114, 175, 0.9);
+  --gray: #808080;
+}

@@ -1,7 +1,7 @@
 .modal {
   height: 100vh;
   width: 100vw;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: var(--transparent-black-40);
   position: fixed;
   top: 0;
   left: 0;
@@ -22,8 +22,8 @@
   box-sizing: border-box;
   width: 800px;
   padding: 24px;
-  background: #dbe2ef;
-  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.5);
+  background: var(--light-blue);
+  box-shadow: 0px 8px 24px var(--transparent-black-50);
   border-radius: 4px;
 }
 
@@ -41,7 +41,7 @@
   font-weight: 500;
   font-size: 40px;
   line-height: 56px;
-  color: #3f72af;
+  color: var(--dark-blue);
   margin-bottom: 32px;
 }
 
@@ -60,7 +60,7 @@
   font-weight: 400;
   font-size: 20px;
   line-height: 24px;
-  color: #000000;
+  color: var(--black);
 }
 
 .modal__content-footer {
@@ -79,7 +79,7 @@
   height: 46px;
   width: 100%;
   background: transparent;
-  border: 2px solid #3f72af;
+  border: 2px solid var(--dark-blue);
   border-radius: 4px;
   font-style: normal;
   font-weight: 400;
@@ -88,7 +88,7 @@
 }
 
 .modalinput::placeholder {
-  color: rgba(0, 0, 0, 0.5);
+  color: var(--transparent-black-50);
 }
 
 .modalinput-wrapper {
@@ -111,12 +111,12 @@
 .dropdown-label {
   font-style: normal;
   display: inline-block;
-  background-color: #dbe2ef;
+  background-color: var(--light-blue);
   font-weight: 400;
   padding: 2px;
   font-size: 18px;
   line-height: 20px;
-  color: #3f72af;
+  color: var(--dark-blue);
   position: absolute;
   left: 12px;
   top: -15px;
@@ -140,7 +140,7 @@
   height: 72px;
   margin-bottom: 24px;
   background: transparent;
-  border: 2px solid #3f72af;
+  border: 2px solid var(--dark-blue);
   border-radius: 4px;
   font-style: normal;
   font-weight: 400;
@@ -162,7 +162,7 @@
 }
 
 .modaltextarea::placeholder {
-  color: rgba(0, 0, 0, 0.5);
+  color: var(--transparent-black-50);
 }
 
 .modaltextarea:focus {
@@ -184,8 +184,8 @@
   padding: 8px;
   align-items: center; /* для треугольника */
   justify-content: space-between;
-  background: #dbe2ef;
-  border: 2px solid #3f72af;
+  background: var(--light-blue);
+  border: 2px solid var(--dark-blue);
   border-radius: 4px;
   height: 46px;
 }
@@ -194,14 +194,14 @@
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
-  color: #000;
+  color: var(--black);
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
 }
 
 .dropdown .dropdown-btn.placeholder {
-  color: rgba(0, 0, 0, 0.5);
+  color: var(--transparent-black-50);
 }
 
 .dropdown .dropdown-content {
@@ -209,8 +209,8 @@
   position: absolute;
   max-height: 200px;
   top: 45px;
-  background: #dbe2ef;
-  border: 2px solid #3f72af;
+  background: var(--light-blue);
+  border: 2px solid var(--dark-blue);
   border-radius: 4px;
   width: 364px;
   overflow-y: auto;
@@ -220,17 +220,17 @@
 .dropdown .dropdown-content::-webkit-scrollbar,
 .modaltextarea::-webkit-scrollbar {
   width: 20px;
-  background-color: rgba(63, 114, 175, 0.1);
+  background-color: var(--dark-blue-transparent-10);
 }
 
 .dropdown .dropdown-content::-webkit-scrollbar-thumb,
 .modaltextarea::-webkit-scrollbar-thumb {
-  background-color: rgba(63, 114, 175, 0.9);
+  background-color: var(--dark-blue-transparent-90);
 }
 
 .dropdown .dropdown-content::-webkit-scrollbar-track,
 .modaltextarea::-webkit-scrollbar-track {
-  -webkit-box-shadow: 5px 5px 5px -5px rgba(63, 114, 175, 0.2) inset;
+  -webkit-box-shadow: 5px 5px 5px -5px var(--dark-blue-transparent-20) inset;
 }
 
 .dropdown .dropdown-content .dropdown-item {
@@ -241,15 +241,15 @@
   width: 100%;
   border: none;
   border-radius: 4px;
-  color: #3f72af;
+  color: var(--dark-blue);
 }
 
 .dropdown .dropdown-content .dropdown-item.active {
-  color: #fff;
-  background-color: #3f72af;
+  color: var(--white);
+  background-color: var(--dark-blue);
 }
 
 .dropdown .dropdown-content .dropdown-item:hover {
-  background-color: #3f72ff;
-  color: #fff;
+  background-color: var(--deep-blue);
+  color: var(--white);
 }

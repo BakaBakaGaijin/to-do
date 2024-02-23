@@ -5,8 +5,8 @@
   font-weight: 400;
   font-size: 20px;
   line-height: 46px;
-  color: #3f72af;
-  border: 2px solid #3f72af;
+  color: var(--dark-blue);
+  border: 2px solid var(--dark-blue);
   background: transparent;
   border-radius: 4px;
   cursor: pointer;
@@ -17,8 +17,8 @@
 }
 
 .modalbtn.primary {
-  color: #fff;
-  background-color: #3f72af;
+  color: var(--white);
+  background-color: var(--dark-blue);
 }
 
 .modalbtn.primary.large {
