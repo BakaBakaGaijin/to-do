@@ -1,6 +1,8 @@
 import { Route, Routes } from "react-router-dom";
-import { Tasks } from "../Lists/Tasks";
-import { Categories } from "../Lists/Categories";
+import { lazy } from "react";
+
+const Tasks = lazy(() => import("./tasks"));
+const Categories = lazy(() => import("./tasks"));
 
 export const Routing = () => {
   return (
