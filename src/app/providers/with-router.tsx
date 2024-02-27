@@ -1,9 +1,10 @@
 /* VENDOR */
-import { ReactNode, Suspense } from "react";
+import { ReactNode } from "react";
 import { BrowserRouter } from "react-router-dom";
 
+/* APPLICATION */
+import "./index.css";
+
 export const withRouter = (component: () => ReactNode) => () => (
-  <BrowserRouter>
-    <Suspense fallback={<div>loading...</div>}>{component()}</Suspense>
-  </BrowserRouter>
+  <BrowserRouter>{component()}</BrowserRouter>
 );

@@ -39,3 +39,8 @@ a {
   background-color: var(--light-blue);
   min-height: 100dvh;
 }
+
+main {
+  min-height: calc(100dvh - 88px); /* вычитаем высоту хедера */
+  position: relative;
+}

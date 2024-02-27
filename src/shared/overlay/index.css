@@ -1,0 +1,8 @@
+.overlay {
+  background-color: var(--transparent-black-50);
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
